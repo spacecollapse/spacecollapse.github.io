@@ -1,0 +1,364 @@
+# spacecollapse.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание игровой конфигурации</title>
+    
+    
+    <style>
+body {
+    background-color: #141414; /* Тёмный цвет фона */
+    color: #dddddd; /* Цвет текста */
+}
+
+.container {
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: #131212; /* Цвет фона контейнера */
+}
+
+.game-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.game-card {
+    flex: 1 1 calc(10% - 20px);
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #aaa; /* Цвет границы */
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #0e0707; /* Цвет фона карточки */
+}
+
+.game-card img {
+    width: 80%;
+    border-radius: px;
+}
+
+.game-card.selected {
+    border-color: green;
+    border: 4px solid green;
+    
+}
+
+.mini-field {
+    border: 2px solid #ffffff; /* Цвет границы */
+    border-radius: 5px;
+    padding: 30px;
+    margin-bottom: 1px;
+    background-color: #555; /* Цвет фона мини-поля */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>//////Выберете игры и скопируйте список\\\\\\</h1>
+        <div class="mini-field" id="gameIds"></div>
+        <button onclick="copyIds()">Скопировать список</button
+        <div class="spacer"></div>
+        <h2>Для поиска игр нажмите Ctrl+F</h2>
+        <div class="game-cards-container">
+
+
+        <div class="game-card" onclick="toggleGame('252490', 'Rust', this)">
+            <img src="img/rust.jpg" alt="Rust">
+            <p>Rust</p>
+        </div>
+        
+        
+        <div class="game-card" onclick="toggleGame('578080', 'PUBG', this)">
+            <img src="img/pubg.jpg" alt="PUBG">
+            <p>PUBG</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('570', 'Dota 2', this)">
+            <img src="img/dota2.jpg" alt="Dota 2">
+            <p>Dota 2</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('730', 'Counter Strike 2', this)">
+            <img src="img/counterstrike.jpg" alt="Counter Strike 2">
+            <p>Counter Strike 2</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('413150', 'StardewValley', this)">
+            <img src="img/stardewvalley.jpg" alt="StardewValley">
+            <p>StardewValley</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('1172470', 'ApexLegends', this)">
+            <img src="img/apexlegends.jpg" alt="ApexLegends">
+            <p>ApexLegends</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('359550', 'Rainbow SixSiege', this)">
+            <img src="img/sixsiege.jpg" alt="Rainbow SixSiege">
+            <p>Rainbow SixSiege</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('271590', 'GTA V', this)">
+            <img src="img/gtav.jpg" alt="GTA V">
+            <p>GTA V</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('440', 'TeamFortress 2', this)">
+            <img src="img/tf2.jpg" alt="TeamFortress 2">
+            <p>TeamFortress 2</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('236390', 'WarThunder', this)">
+            <img src="img/warthunder.jpg" alt="WarThunder">
+            <p>WarThunder</p>
+        </div>
+
+
+        <div class="game-card" onclick="toggleGame('739630', 'Phasmophobia', this)">
+            <img src="img/Phasmophobia.jpg" alt="Phasmophobia">
+            <p>Phasmophobia</p>
+        </div>
+
+
+        <div class="game-card" onclick="toggleGame('162373', 'PalWorld', this)">
+            <img src="img/palworld.jpg" alt="PalWorld">
+            <p>PalWorld</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('221100', 'DayZ', this)">
+            <img src="img/dayz.jpg" alt="DayZ">
+            <p>DayZ</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('393380', 'Squad', this)">
+            <img src="img/squad.jpg" alt="Squad">
+            <p>Squad</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('700330', 'Scp:SL', this)">
+            <img src="img/scpsl.jpg" alt="Scp:SL">
+            <p>Scp:SL</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('4000', 'Gmod', this)">
+            <img src="img/gmod.jpg" alt="Gmod">
+            <p>Gmod</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('629520', 'Soundpad', this)">
+            <img src="img/soundpad.jpg" alt="Soundpad">
+            <p>Soundpad</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('105600', 'Terraria', this)">
+            <img src="img/terraria.jpg" alt="Terraria">
+            <p>Terraria</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('10', 'Cs:1.6', this)">
+            <img src="img/cs16.jpg" alt="Cs:1.6">
+            <p>Cs:1.6</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('240', 'Cs:Source', this)">
+            <img src="img/css.jpg" alt="Cs:Source">
+            <p>Cs:Source</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('1118200', 'People Playground', this)">
+            <img src="img/peoplepg.jpg" alt="People Playground">
+            <p>People Playground</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('431960', 'Wallpaper Engine', this)">
+            <img src="img/wallpaper.jpg" alt="Wallpaper Engine">
+            <p>Wallpaper Engine</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('387990', 'Scrap Mechanic', this)">
+            <img src="img/scrap.jpg" alt="Scrap Mechanic">
+            <p>Scrap Mechanic</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('220', 'Half Life 2', this)">
+            <img src="img/halflife2.jpg" alt="Half Life 2">
+            <p>Half Life 2</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('322170', 'Geometry Dash', this)">
+            <img src="img/gd.jpg" alt="Geometry Dash">
+            <p>Geometry Dash</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('304930', 'Unturned', this)">
+            <img src="img/unturned.jpg" alt="Unturned">
+            <p>Unturned</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('218620', 'Pay Day 2', this)">
+            <img src="img/payday2.jpg" alt="Pay Day 2">
+            <p>Pay Day 2</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('218620', 'Left 4 dead 2', this)">
+            <img src="img/l4d2.jpg" alt="Left 4 dead 2">
+            <p>Left 4 dead 2</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('500', 'Left 4 dead', this)">
+            <img src="img/l4d.jpg" alt="Left 4 dead">
+            <p>Left 4 dead</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('438100', 'VrChat', this)">
+            <img src="img/vr.jpg" alt="VrChat">
+            <p>VrChat</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('346110', 'Ark:Survival Evolved', this)">
+            <img src="img/ark.jpg" alt="Ark:Survival Evolved">
+            <p>Ark:Survival Evolved</p>
+        </div>
+        
+        <div class="game-card" onclick="toggleGame('760160', 'Bloodhunt', this)">
+            <img src="img/bloodhunt.jpg" alt="Bloodhunt">
+            <p>Bloodhunt</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('108600', 'Project Zomboid', this)">
+            <img src="img/projectz.jpg" alt="Project Zomboid">
+            <p>Project Zomboid</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('466240', 'Deceit', this)">
+            <img src="img/deceit.jpg" alt="Deceit">
+            <p>Deceit</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('322330', 'Don't Starve Together', this)">
+            <img src="img/dontstarvetg.jpg" alt="Don't Starve Together">
+            <p>Don't Starve Together</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('1280770', 'RedMatch 2', this)">
+            <img src="img/redmatch2.jpg" alt="RedMatch 2">
+            <p>RedMatch 2</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('331470', 'Everlasting Summer', this)">
+            <img src="img/es.jpg" alt="Everlasting Summer">
+            <p>Everlasting Summer</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('620', 'Portal 2', this)">
+            <img src="img/portal2.jpg" alt="Portal 2">
+            <p>Portal 2</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('225540', 'Just Cause 3', this)">
+            <img src="img/justcause3.jpg" alt="Just Cause 3">
+            <p>Just Cause 3</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('1222670', 'The Sims 4', this)">
+            <img src="img/sims4.jpg" alt="The Sims 4">
+            <p>The Sims 4</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('242760', 'The Forest', this)">
+            <img src="img/forest.jpg" alt="The Forest">
+            <p>The Forest</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('552100', 'Brick Rigs', this)">
+            <img src="img/brickrigs.jpg" alt="Brick Rigs">
+            <p>Brick Rigs</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('534380', 'Dying Light 2', this)">
+            <img src="img/dl2.jpg" alt="Dying Light 2">
+            <p>Dying Light 2</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('394360', 'Hearts of Iron 4', this)">
+            <img src="img/hoi4.jpg" alt="Hearts of Iron 4">
+            <p>Hearts of Iron 4</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('480', 'SpaceWar', this)">
+            <img src="img/spacewar.jpg" alt="SpaceWar">
+            <p>SpaceWar</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('1966720', 'Lethal Company', this)">
+            <img src="img/lethalcompany.jpg" alt="Lethal Company">
+            <p>Lethal Company</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('381210', 'DeadByDaylight', this)">
+            <img src="img/dbd.jpg" alt="DeadByDaylight">
+            <p>DeadByDaylight</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('2357570', 'Overwatch 2', this)">
+            <img src="img/overwatch2.jpg" alt="">
+            <p>Overwatch 2</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('714010', 'Aimlabs', this)">
+            <img src="img/Aimlabs.jpg" alt="">
+            <p>Aimlabs</p>
+        </div>
+
+        <div class="game-card" onclick="toggleGame('433340', 'Slime Rancher', this)">
+            <img src="img/slimerancher.jpg" alt="">
+            <p>Slime Rancher</p>
+        </div>
+
+        
+    </div>
+
+    <script>
+        function toggleGame(gameId, gameName, element) {
+            var miniField = document.getElementById("gameIds");
+            var gameIdElement = miniField.querySelector("[data-game-id='" + gameId + "']");
+            if (gameIdElement) {
+                gameIdElement.remove();
+                if (miniField.children.length > 0) {
+                    miniField.removeChild(miniField.lastChild);
+                }
+                element.classList.remove("selected");
+            } else {
+                gameIdElement = document.createElement("span");
+                gameIdElement.textContent = gameId;
+                gameIdElement.dataset.gameId = gameId;
+                gameIdElement.dataset.gameName = gameName;
+                if (miniField.children.length > 0) {
+                    var comma = document.createElement("span");
+                    comma.textContent = ", ";
+                    miniField.appendChild(comma);
+                }
+                miniField.appendChild(gameIdElement);
+                element.classList.add("selected");
+            }
+        }
+    
+        function copyIds() {
+            var miniField = document.getElementById("gameIds");
+            var gameIds = Array.from(miniField.querySelectorAll("span")).map(span => span.dataset.gameId).join(", ");
+            navigator.clipboard.writeText(gameIds);
+            alert("Список игровых id скопирован!");
+        }
+    </script>
+    
+</body>
+</html>
